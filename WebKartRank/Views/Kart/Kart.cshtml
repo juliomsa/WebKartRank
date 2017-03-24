@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebKartRank.Models.Kart>
+
+@{
+    ViewBag.Title = "Kart";
+}
+
+<h2>Kart</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Posição
+        </th>
+        <th>
+            Código
+        </th>
+        <th>
+            Piloto
+        </th>
+        <th>
+            Nr Voltas
+        </th>
+        <th>
+            Tempo Prova
+        </th>
+
+        <th>
+            Melhor Volta Piloto
+        </th>
+        <th>
+            Melhor Volta Geral
+        </th>
+        <th>
+            Veloc Média
+        </th>
+        <th>
+            Tempo
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.posicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo_piloto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_piloto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtde_voltas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => new DateTime(item.tempo_prova).TimeOfDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.melhor_volta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.melhor_volta_geral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.veloc_media)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tempo_apos)
+            </td>
+        </tr>
+    }
+
+</table>
